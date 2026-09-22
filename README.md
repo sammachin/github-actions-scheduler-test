@@ -8,10 +8,14 @@ file in `logs/` every time they run, then commit and push it back to the repo.
 
 | Workflow | Cron (UTC) | Intended cadence | Log file |
 |---|---|---|---|
-| [`every-5-min`](.github/workflows/every-5-min.yml)   | `*/5 * * * *` | every 5 minutes  | `logs/every-5-min.log` |
-| [`every-30-min`](.github/workflows/every-30-min.yml) | `*/30 * * * *`| every 30 minutes | `logs/every-30-min.log` |
-| [`every-4-hours`](.github/workflows/every-4-hours.yml)| `0 */4 * * *` | every 4 hours    | `logs/every-4-hours.log` |
-| [`daily`](.github/workflows/daily.yml)               | `0 6 * * *`   | once a day       | `logs/daily.log` |
+| [`every-5-min`](.github/workflows/every-5-min.yml)   | `3,8,13,...,58 * * * *` | every 5 min, offset to :03/:08/… | `logs/every-5-min.log` |
+| [`every-30-min`](.github/workflows/every-30-min.yml) | `12,42 * * * *`| every 30 min, at :12 and :42 | `logs/every-30-min.log` |
+| [`every-4-hours`](.github/workflows/every-4-hours.yml)| `19 */4 * * *` | every 4 hours, at :19 (00:19, 04:19, …) | `logs/every-4-hours.log` |
+| [`daily`](.github/workflows/daily.yml)               | `47 6 * * *`   | once a day at 06:47 | `logs/daily.log` |
+
+The minutes are deliberately offset off the common `:00`/`:30` ticks (where
+GitHub's shared cron infrastructure is busiest and most delayed) and staggered
+so the four workflows don't all fire in the same minute.
 
 Each workflow also has `workflow_dispatch`, so you can trigger it by hand from
 the **Actions** tab to confirm it works without waiting for the schedule.
@@ -21,7 +25,7 @@ the **Actions** tab to confirm it works without waiting for the schedule.
 One line per run, for example:
 
 ```
-actual_run=2026-09-22T17:05:12Z | run_started_at=2026-09-22T17:05:08Z | scheduled_cron=*/5 * * * * | trigger=schedule | run_id=1234567890
+actual_run=2026-09-22T17:08:12Z | run_started_at=2026-09-22T17:08:08Z | scheduled_cron=3,8,13,18,23,28,33,38,43,48,53,58 * * * * | trigger=schedule | run_id=1234567890
 ```
 
 - **`actual_run`** — wall-clock UTC time the log step executed.

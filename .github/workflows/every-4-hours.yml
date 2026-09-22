@@ -2,7 +2,7 @@ name: every-4-hours
 
 on:
   schedule:
-    # Runs at minute 0 every 4th hour (UTC): 00:00, 04:00, 08:00, ...
+    # Runs at minute 19 every 4th hour (UTC): 00:19, 04:19, 08:19, ...
     - cron: '19 */4 * * *'
   workflow_dispatch: {}
 
