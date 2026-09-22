@@ -1,0 +1,50 @@
+name: daily
+
+on:
+  schedule:
+    # Runs once a day at 06:00 UTC.
+    - cron: '47 6 * * *'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  log:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Append run info to log
+        env:
+          LOGFILE: logs/daily.log
+          SCHEDULED_CRON: ${{ github.event.schedule }}
+          TRIGGER: ${{ github.event_name }}
+          RUN_ID: ${{ github.run_id }}
+          RUN_STARTED_AT: ${{ github.run_started_at }}
+        run: |
+          set -euo pipefail
+          mkdir -p logs
+          ACTUAL="$(date -u '+%Y-%m-%dT%H:%M:%SZ')"
+          printf 'actual_run=%s | run_started_at=%s | scheduled_cron=%s | trigger=%s | run_id=%s\n' \
+            "$ACTUAL" "${RUN_STARTED_AT:-n/a}" "${SCHEDULED_CRON:-manual}" "$TRIGGER" "$RUN_ID" \
+            >> "$LOGFILE"
+
+      - name: Commit and push (with rebase retry)
+        env:
+          LOGFILE: logs/daily.log
+        run: |
+          set -euo pipefail
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add "$LOGFILE"
+          git diff --cached --quiet && { echo "no changes"; exit 0; }
+          git commit -m "log(daily): $(date -u '+%Y-%m-%dT%H:%M:%SZ')"
+          for attempt in 1 2 3 4 5; do
+            if git pull --rebase --autostash && git push; then
+              echo "pushed on attempt $attempt"; exit 0
+            fi
+            sleep $(( (RANDOM % 5) + 1 ))
+          done
+          echo "failed to push after retries" >&2
+          exit 1
