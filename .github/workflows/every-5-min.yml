@@ -1,10 +1,12 @@
 name: every-5-min
 
 on:
-  schedule:
-    # Runs every 5 minutes (UTC). GitHub only guarantees "at least once" per
-    # window and delays are common under load, so treat this as a lower bound.
-    - cron: '3,8,13,18,23,28,33,38,43,48,53,58 * * * *'
+  # Schedule disabled 2026-09-25 while slot-probe measures scheduler behavior
+  # in isolation. Re-enable by uncommenting. Still runnable via workflow_dispatch.
+  # schedule:
+  #   # Runs every 5 minutes (UTC). GitHub only guarantees "at least once" per
+  #   # window and delays are common under load, so treat this as a lower bound.
+  #   - cron: '3,8,13,18,23,28,33,38,43,48,53,58 * * * *'
   workflow_dispatch: {}
 
 permissions:

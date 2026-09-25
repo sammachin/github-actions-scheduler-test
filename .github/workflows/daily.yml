@@ -1,9 +1,11 @@
 name: daily
 
 on:
-  schedule:
-    # Runs once a day at 06:47 UTC.
-    - cron: '47 6 * * *'
+  # Schedule disabled 2026-09-25 while slot-probe measures scheduler behavior
+  # in isolation. Re-enable by uncommenting. Still runnable via workflow_dispatch.
+  # schedule:
+  #   # Runs once a day at 06:47 UTC.
+  #   - cron: '47 6 * * *'
   workflow_dispatch: {}
 
 permissions:

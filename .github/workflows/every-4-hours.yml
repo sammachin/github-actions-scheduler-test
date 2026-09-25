@@ -1,9 +1,11 @@
 name: every-4-hours
 
 on:
-  schedule:
-    # Runs at minute 19 every 4th hour (UTC): 00:19, 04:19, 08:19, ...
-    - cron: '19 */4 * * *'
+  # Schedule disabled 2026-09-25 while slot-probe measures scheduler behavior
+  # in isolation. Re-enable by uncommenting. Still runnable via workflow_dispatch.
+  # schedule:
+  #   # Runs at minute 19 every 4th hour (UTC): 00:19, 04:19, 08:19, ...
+  #   - cron: '19 */4 * * *'
   workflow_dispatch: {}
 
 permissions:

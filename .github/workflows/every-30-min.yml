@@ -1,9 +1,11 @@
 name: every-30-min
 
 on:
-  schedule:
-    # Runs every 30 minutes (UTC).
-    - cron: '12,42 * * * *'
+  # Schedule disabled 2026-09-25 while slot-probe measures scheduler behavior
+  # in isolation. Re-enable by uncommenting. Still runnable via workflow_dispatch.
+  # schedule:
+  #   # Runs every 30 minutes (UTC).
+  #   - cron: '12,42 * * * *'
   workflow_dispatch: {}
 
 permissions:
