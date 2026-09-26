@@ -354,11 +354,16 @@ jobs:
           git add "$LOGFILE"
           git diff --cached --quiet && { echo "no changes"; exit 0; }
           git commit -m "log(slot-probe): $(date -u '+%Y-%m-%dT%H:%M:%SZ')"
-          for attempt in 1 2 3 4 5; do
+          # logs/*.log uses merge=union (.gitattributes), so concurrent appends
+          # rebase cleanly by keeping both lines. Abort any half-finished rebase
+          # from a prior attempt first, so a failure never cascades into the
+          # "you have unmerged files" state that jams every later retry.
+          for attempt in 1 2 3 4 5 6 7 8; do
+            git rebase --abort 2>/dev/null || true
             if git pull --rebase --autostash && git push; then
               echo "pushed on attempt $attempt"; exit 0
             fi
-            sleep $(( (RANDOM % 5) + 1 ))
+            sleep $(( (RANDOM % 6) + 1 ))
           done
           echo "failed to push after retries" >&2
           exit 1
