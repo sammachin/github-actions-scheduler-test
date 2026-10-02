@@ -1928,3 +1928,4 @@ intended_utc=2026-10-02T01:05:00Z | run_started_at=2026-10-02T06:47:15Z | actual
 intended_utc=2026-10-02T01:00:00Z | run_started_at=2026-10-02T06:54:35Z | actual_run=2026-10-02T06:54:40Z | delay_sec=21275 | schedule=0 1 * * * | trigger=schedule | run_id=36975834533
 intended_utc=2026-10-02T01:10:00Z | run_started_at=2026-10-02T06:56:26Z | actual_run=2026-10-02T06:56:43Z | delay_sec=20786 | schedule=10 1 * * * | trigger=schedule | run_id=36975988239
 intended_utc=2026-10-02T01:15:00Z | run_started_at=2026-10-02T07:00:51Z | actual_run=2026-10-02T07:00:56Z | delay_sec=20751 | schedule=15 1 * * * | trigger=schedule | run_id=36976356521
+intended_utc=2026-10-02T01:20:00Z | run_started_at=2026-10-02T07:02:42Z | actual_run=2026-10-02T07:02:48Z | delay_sec=20562 | schedule=20 1 * * * | trigger=schedule | run_id=36976515745
