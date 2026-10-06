@@ -2987,3 +2987,4 @@ intended_utc=2026-10-05T18:45:00Z | run_started_at=2026-10-06T00:18:42Z | actual
 intended_utc=2026-10-05T18:50:00Z | run_started_at=2026-10-06T00:20:56Z | actual_run=2026-10-06T00:21:02Z | delay_sec=19856 | schedule=50 18 * * * | trigger=schedule | run_id=37393526251
 intended_utc=2026-10-05T18:55:00Z | run_started_at=2026-10-06T00:25:01Z | actual_run=2026-10-06T00:25:08Z | delay_sec=19801 | schedule=55 18 * * * | trigger=schedule | run_id=37393887611
 intended_utc=2026-10-05T19:00:00Z | run_started_at=2026-10-06T00:34:50Z | actual_run=2026-10-06T00:34:55Z | delay_sec=20090 | schedule=0 19 * * * | trigger=schedule | run_id=37394750620
+intended_utc=2026-10-05T19:05:00Z | run_started_at=2026-10-06T00:43:29Z | actual_run=2026-10-06T00:43:35Z | delay_sec=20309 | schedule=5 19 * * * | trigger=schedule | run_id=37395481057
