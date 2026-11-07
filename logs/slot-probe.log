@@ -12485,3 +12485,4 @@ intended_utc=2026-11-07T18:50:00Z | run_started_at=2026-11-07T22:18:51Z | actual
 intended_utc=2026-11-07T18:55:00Z | run_started_at=2026-11-07T22:24:20Z | actual_run=2026-11-07T22:24:24Z | delay_sec=12560 | schedule=55 18 * * * | trigger=schedule | run_id=42420457058
 intended_utc=2026-11-07T19:00:00Z | run_started_at=2026-11-07T22:28:45Z | actual_run=2026-11-07T22:28:50Z | delay_sec=12525 | schedule=0 19 * * * | trigger=schedule | run_id=42420791214
 intended_utc=2026-11-07T19:05:00Z | run_started_at=2026-11-07T22:37:43Z | actual_run=2026-11-07T22:37:48Z | delay_sec=12763 | schedule=5 19 * * * | trigger=schedule | run_id=42421498239
+intended_utc=2026-11-07T19:10:00Z | run_started_at=2026-11-07T22:42:00Z | actual_run=2026-11-07T22:42:05Z | delay_sec=12720 | schedule=10 19 * * * | trigger=schedule | run_id=42421825917
