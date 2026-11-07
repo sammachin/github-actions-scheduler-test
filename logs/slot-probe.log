@@ -12208,3 +12208,4 @@ intended_utc=2026-11-06T19:45:00Z | run_started_at=2026-11-06T23:49:28Z | actual
 intended_utc=2026-11-06T19:50:00Z | run_started_at=2026-11-06T23:50:02Z | actual_run=2026-11-06T23:50:07Z | delay_sec=14402 | schedule=50 19 * * * | trigger=schedule | run_id=42314439858
 intended_utc=2026-11-06T19:55:00Z | run_started_at=2026-11-06T23:50:12Z | actual_run=2026-11-06T23:50:17Z | delay_sec=14112 | schedule=55 19 * * * | trigger=schedule | run_id=42314459063
 intended_utc=2026-11-06T20:05:00Z | run_started_at=2026-11-07T00:00:07Z | actual_run=2026-11-07T00:00:14Z | delay_sec=14107 | schedule=5 20 * * * | trigger=schedule | run_id=42315469802
+intended_utc=2026-11-06T20:00:00Z | run_started_at=2026-11-07T00:01:57Z | actual_run=2026-11-07T00:02:03Z | delay_sec=14517 | schedule=0 20 * * * | trigger=schedule | run_id=42315680392
